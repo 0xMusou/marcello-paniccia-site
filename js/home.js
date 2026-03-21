@@ -89,3 +89,18 @@ gsap.to('.featured__photo', {
     scrub: true,
   }
 });
+
+// ============================================================
+// INSTAGRAM STRIP — STAGGER FADE-IN
+// ============================================================
+gsap.from('.ig-strip__tile', {
+  opacity: 0,
+  y: 30,
+  duration: 0.7,
+  stagger: 0.1,
+  ease: 'power3.out',
+  scrollTrigger: {
+    trigger: '.ig-strip__grid',
+    start: 'top 85%',
+  }
+});

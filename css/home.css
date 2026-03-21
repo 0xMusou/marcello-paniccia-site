@@ -355,3 +355,44 @@
   align-items: center;
   gap: 2rem;
 }
+
+/* ============================================================
+   INSTAGRAM PREVIEW STRIP
+============================================================ */
+.ig-strip {
+  padding-block: var(--section-pad);
+  background: var(--color-bg);
+}
+.ig-strip__header { margin-bottom: 2rem; }
+.ig-strip__label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  transition: color 0.2s;
+}
+.ig-strip__label:hover { color: var(--color-text); }
+
+.ig-strip__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+.ig-strip__tile {
+  aspect-ratio: 1;
+  overflow: hidden;
+  display: block;
+}
+.ig-strip__tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s;
+  filter: grayscale(20%);
+}
+.ig-strip__tile:hover img {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}

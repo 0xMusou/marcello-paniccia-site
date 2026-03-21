@@ -113,3 +113,39 @@
 }
 
 .hero__scroll-btn { background: transparent; font-family: inherit; border: none; color: var(--color-text); cursor: pointer; }
+
+/* ============================================================
+   MARQUEE STRIP
+============================================================ */
+.marquee {
+  background: var(--color-red);
+  overflow: hidden;
+  padding-block: 14px;
+  white-space: nowrap;
+  cursor: default;
+}
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+.marquee__track {
+  display: inline-flex;
+  gap: 2.5rem;
+  animation: marquee-scroll 18s linear infinite;
+}
+.marquee__item {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.marquee__sep {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}

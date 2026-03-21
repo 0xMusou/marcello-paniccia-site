@@ -129,7 +129,6 @@
 }
 .marquee__track {
   display: inline-flex;
-  gap: 2.5rem;
   animation: marquee-scroll 18s linear infinite;
 }
 .marquee__item {
@@ -139,10 +138,12 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #fff;
+  margin-right: 2.5rem;
 }
 .marquee__sep {
   color: rgba(255, 255, 255, 0.5);
   font-size: 0.8rem;
+  margin-right: 2.5rem;
 }
 
 @keyframes marquee-scroll {
@@ -322,10 +323,10 @@
   min-height: 500px;
   overflow: hidden;
 }
-/* Extra vertical space for parallax travel — 20% top + bottom */
+/* Extra vertical space for parallax travel — 22% top + 20% bottom */
 .featured__photo {
   position: absolute;
-  top: -20%;
+  top: -22%;
   bottom: -20%;
   left: 0;
   right: 0;

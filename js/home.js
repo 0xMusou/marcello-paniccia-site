@@ -24,3 +24,30 @@
   document.querySelector('.hero__scroll-btn')
     ?.addEventListener('click', () => lenis.scrollTo('.marquee'));
 })();
+
+// ============================================================
+// ABOUT SECTION — SCROLL FADE-IN
+// ============================================================
+gsap.from('.about__text > *', {
+  opacity: 0,
+  y: 40,
+  duration: 0.8,
+  stagger: 0.12,
+  ease: 'power3.out',
+  scrollTrigger: {
+    trigger: '.about',
+    start: 'top 75%',
+  }
+});
+
+gsap.from('.about__stat', {
+  opacity: 0,
+  x: 40,
+  duration: 0.7,
+  stagger: 0.15,
+  ease: 'power3.out',
+  scrollTrigger: {
+    trigger: '.about__stats',
+    start: 'top 80%',
+  }
+});

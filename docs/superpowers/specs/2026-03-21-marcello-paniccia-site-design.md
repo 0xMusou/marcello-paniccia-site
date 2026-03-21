@@ -66,7 +66,7 @@ Built in **Vanilla HTML/CSS/JS**, then ported to **Webflow** via MCP server. GSA
 
 ### Footer
 - Dark background
-- Left: `© 2025 Marcello Paniccia`
+- Left: `© 2026 Marcello Paniccia`
 - Center: nav links
 - Right: Instagram (`@marcello.m.p`) · Facebook (`marcello.paniccia.2025`)
 - Small red signature stamp centered above copyright line
@@ -115,7 +115,7 @@ Built in **Vanilla HTML/CSS/JS**, then ported to **Webflow** via MCP server. GSA
 
 6. **Instagram Preview Strip**
    - Label: `FOLLOW @MARCELLO.M.P`
-   - 4-column grid of recent-style photo tiles (static for local build, linked to IG profile)
+   - 4-column grid using any 4 photos from the gallery assets (static for local build, linked to IG profile)
    - Stagger fade-in on scroll enter
 
 7. **Footer** (global)
@@ -126,7 +126,7 @@ Built in **Vanilla HTML/CSS/JS**, then ported to **Webflow** via MCP server. GSA
 
 1. **Hero** — full-viewport action shot, heading `ON TRACK`, overline with series name
 2. **Stats Grid** — key numbers: races entered, car number, series, year; count-up animation
-3. **Race Results** — card-based timeline of race results (circuit, position, date); sourced from driverdb data
+3. **Race Results** — card-based timeline of race results (circuit, position, date); hardcoded HTML for local build, updated manually from driverdb data
 4. **Photo Gallery** — masonry or horizontal scroll grid of on-track photos
 5. **Car / Team Info** — Mazda MX-5 Cup specs, team details, livery photo
 
@@ -233,4 +233,4 @@ Per user agreement: build and approve one page at a time.
 3. **Off Track** — after On Track approved
 4. **Calendar** — after Off Track approved
 5. **Contact** — after Calendar approved
-6. **Webflow port** — after all pages approved, apply via Webflow MCP server
+6. **Webflow port** — after all pages approved, apply via Webflow MCP server (Webflow-specific workflow is out of scope for the local build plan; handled separately)

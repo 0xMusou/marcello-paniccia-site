@@ -75,3 +75,17 @@ gsap.from('.split__content', {
   ease: 'power3.out',
   scrollTrigger: { trigger: '.split', start: 'top 70%' }
 });
+
+// ============================================================
+// FEATURED — PARALLAX DEPTH ON SCROLL
+// ============================================================
+gsap.to('.featured__photo', {
+  yPercent: 15,
+  ease: 'none',
+  scrollTrigger: {
+    trigger: '.featured',
+    start: 'top bottom',
+    end: 'bottom top',
+    scrub: true,
+  }
+});

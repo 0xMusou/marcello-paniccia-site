@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Static Dev Server",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["D:/claude march site/server.js"],
+      "port": 3000
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+# Local assets (large files — add manually if needed)
+OTF/
+optimized marcello photos/
+
+# Claude tooling
+.superpowers/
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db

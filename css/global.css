@@ -1,0 +1,234 @@
+/* ============================================================
+   RESET
+============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: auto; } /* Lenis handles smooth scroll */
+body { background: var(--color-bg); color: var(--color-text); overflow-x: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ============================================================
+   FONTS
+============================================================ */
+@font-face {
+  font-family: 'Gambarino';
+  src: url('../OTF/Gambarino-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('../OTF/Switzer-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('../OTF/Switzer-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Switzer';
+  src: url('../OTF/Switzer-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
+   CUSTOM PROPERTIES
+============================================================ */
+:root {
+  --color-red:       #C32323;
+  --color-red-deep:  #9C1C1C;
+  --color-green:     #1E9156;
+  --color-bg:        #0a0a0a;
+  --color-surface:   #111111;
+  --color-border:    #222222;
+  --color-text:      #ffffff;
+  --color-muted:     #888888;
+
+  --font-display: 'Gambarino', serif;
+  --font-body:    'Switzer', sans-serif;
+
+  --nav-height:      72px;
+  --section-pad:     clamp(80px, 10vw, 140px);
+  --container-max:   1400px;
+  --container-pad:   clamp(24px, 5vw, 80px);
+}
+
+/* ============================================================
+   UTILITIES
+============================================================ */
+.container {
+  width: 100%;
+  max-width: calc(var(--container-max) + (var(--container-pad) * 2));
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.overline {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* ============================================================
+   NAVIGATION
+============================================================ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  padding-inline: var(--container-pad);
+  transition: background 0.3s, border-color 0.3s;
+  border-bottom: 1px solid transparent;
+}
+.nav.scrolled {
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom-color: var(--color-border);
+}
+.nav__logo img {
+  height: 40px;
+  width: auto;
+}
+.nav__links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.nav__links a {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  transition: color 0.2s;
+}
+.nav__links a:hover,
+.nav__links a.active { color: var(--color-text); }
+.nav__social {
+  margin-left: auto;
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+.nav__social a {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  transition: color 0.2s;
+}
+.nav__social a:hover { color: var(--color-text); }
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.footer {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding-block: 48px;
+}
+.footer__inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+.footer__copy {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+.footer__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.footer__sig img {
+  height: 36px;
+  width: auto;
+  opacity: 0.7;
+}
+.footer__nav {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+.footer__nav a {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  transition: color 0.2s;
+}
+.footer__nav a:hover { color: var(--color-text); }
+.footer__social {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: flex-end;
+}
+.footer__social a {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  transition: color 0.2s;
+}
+.footer__social a:hover { color: var(--color-text); }
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.85em 1.8em;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.btn--red {
+  background: var(--color-red);
+  color: #fff;
+  border-color: var(--color-red);
+}
+.btn--red:hover {
+  background: var(--color-red-deep);
+  border-color: var(--color-red-deep);
+}
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.btn--ghost:hover {
+  border-color: var(--color-text);
+}

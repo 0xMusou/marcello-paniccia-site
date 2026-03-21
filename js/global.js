@@ -18,6 +18,8 @@ gsap.ticker.lagSmoothing(0);
 // NAV SCROLL BEHAVIOR
 // ============================================================
 const nav = document.querySelector('.nav');
-lenis.on('scroll', ({ scroll }) => {
-  nav.classList.toggle('scrolled', scroll > 60);
-});
+if (nav) {
+  lenis.on('scroll', ({ scroll }) => {
+    nav.classList.toggle('scrolled', scroll > 60);
+  });
+}

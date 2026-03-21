@@ -51,3 +51,27 @@ gsap.from('.about__stat', {
     start: 'top 80%',
   }
 });
+
+// ============================================================
+// SPLIT SECTION — CLIP-PATH REVEAL ON SCROLL ENTER
+// ============================================================
+gsap.from('.split__side--left', {
+  clipPath: 'inset(0 50% 0 0)',
+  duration: 1.2,
+  ease: 'power3.out',
+  scrollTrigger: { trigger: '.split', start: 'top 80%' }
+});
+gsap.from('.split__side--right', {
+  clipPath: 'inset(0 0 0 50%)',
+  duration: 1.2,
+  ease: 'power3.out',
+  scrollTrigger: { trigger: '.split', start: 'top 80%' }
+});
+gsap.from('.split__content', {
+  opacity: 0,
+  y: 30,
+  duration: 0.8,
+  stagger: 0.2,
+  ease: 'power3.out',
+  scrollTrigger: { trigger: '.split', start: 'top 70%' }
+});

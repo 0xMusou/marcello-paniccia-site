@@ -29,11 +29,12 @@ Built in **Vanilla HTML/CSS/JS**, then ported to **Webflow** via MCP server. GSA
 | Text Muted | `#888888` | Labels, body copy, captions |
 
 ### Typography
-- **Font family:** Switzer (self-hosted OTF from `/OTF/`)
+- **Fonts:** Switzer (self-hosted OTF from `/OTF/`) + Gambarino Regular (self-hosted OTF from `/OTF/Gambarino-Regular.otf`)
+- **Display / hero headings:** Gambarino Regular — used for large-scale hero names, section titles, and any editorial/statement text
 - **Nav / labels / overlines:** Switzer Regular, uppercase, wide letter-spacing
 - **Body copy:** Switzer Regular
-- **Headings:** Switzer Bold / Black (weights loaded as needed)
-- **Display (hero):** Switzer Black, large scale
+- **Supporting headings / UI text:** Switzer Bold / Black (weights loaded as needed)
+- **Rule of thumb:** Gambarino for impact and personality, Switzer for everything functional
 
 ### Signature Asset
 - **File:** `/optimized marcello photos/signature/white march sig.png` (on dark bg)

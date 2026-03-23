@@ -95,9 +95,9 @@ if (countEl) {
     secsEl.textContent  = pad(secs);
   }
 
+  const timer = setInterval(tick, 1000);
   // Run immediately so there's no blank flash on load
   tick();
-  const timer = setInterval(tick, 1000);
 })();
 
 // GSAP entrance

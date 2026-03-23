@@ -274,3 +274,115 @@
   }
   .ot-moment--image-left .ot-moment__image { order: 0; }
 }
+
+/* ============================================================
+   GOPRO / IN-CAR CLIPS
+============================================================ */
+.ot-clips {
+  background: var(--color-bg);
+  padding: var(--section-pad) 0;
+  overflow: hidden;
+}
+
+.ot-clips__heading {
+  color: var(--color-muted);
+  margin-bottom: 2.5rem;
+}
+
+.ot-clips__strip-wrap {
+  position: relative;
+}
+
+.ot-clips__strip {
+  --gap: 1.5rem;
+  display: flex;
+  gap: var(--gap);
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 0 var(--gap);
+  opacity: 0;
+}
+
+.ot-clips__strip::-webkit-scrollbar { display: none; }
+
+.ot-clips__card {
+  flex: 0 0 calc((100vw - 2 * var(--gap)) / 3);
+  scroll-snap-align: start;
+}
+
+@media (max-width: 900px) {
+  .ot-clips__card { flex: 0 0 calc((100vw - 2 * var(--gap)) / 2); }
+}
+
+@media (max-width: 560px) {
+  .ot-clips__card { flex: 0 0 calc(100vw - 2 * var(--gap)); }
+}
+
+.ot-clips__video-wrap {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.ot-clips__video-wrap:hover {
+  border-color: var(--color-red);
+}
+
+.ot-clips__video-wrap video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ot-clips__play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.ot-clips__video-wrap:hover .ot-clips__play {
+  transform: scale(1.12);
+}
+
+.ot-clips__label {
+  margin-top: 0.75rem;
+  color: var(--color-muted);
+  font-size: 0.7rem;
+}
+
+/* Arrow buttons */
+.ot-clips__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(0,0,0,0.55);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.ot-clips__arrow:hover { background: rgba(0,0,0,0.8); }
+
+.ot-clips__arrow--left  { left: 0.5rem; }
+.ot-clips__arrow--right { right: 0.5rem; }
+
+/* Hidden state when at scroll boundary */
+.ot-clips__arrow[data-hidden="true"] {
+  opacity: 0;
+  pointer-events: none;
+}

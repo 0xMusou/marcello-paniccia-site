@@ -146,3 +146,48 @@ document.querySelectorAll('.ot-moment').forEach((chapter) => {
     });
   }
 });
+
+// ============================================================
+// GOPRO STRIP — arrow navigation + boundary hide
+// ============================================================
+(function initClips() {
+  const strip   = document.getElementById('js-clips-strip');
+  const btnPrev = document.getElementById('js-clips-prev');
+  const btnNext = document.getElementById('js-clips-next');
+  if (!strip) return;
+
+  function getCardWidth() {
+    const card = strip.querySelector('.ot-clips__card');
+    // --gap is 1.5rem; parseFloat('1.5rem') = 1.5 — must convert to px using root font size
+    const remPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+    const gap   = parseFloat(getComputedStyle(strip).getPropertyValue('--gap')) * remPx || 24;
+    return card ? card.offsetWidth + gap : 0;
+  }
+
+  function updateArrows() {
+    const atStart = strip.scrollLeft <= 2;
+    const atEnd   = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 2;
+    btnPrev.dataset.hidden = atStart ? 'true' : 'false';
+    btnNext.dataset.hidden = atEnd   ? 'true' : 'false';
+  }
+
+  btnPrev.addEventListener('click', () => {
+    strip.scrollBy({ left: -getCardWidth(), behavior: 'smooth' });
+  });
+  btnNext.addEventListener('click', () => {
+    strip.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
+  });
+  strip.addEventListener('scroll', updateArrows, { passive: true });
+  updateArrows(); // set initial state
+
+  // GSAP entrance
+  gsap.to(strip, {
+    opacity: 1,
+    duration: 0.8,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.ot-clips',
+      start: 'top 75%',
+    }
+  });
+})();

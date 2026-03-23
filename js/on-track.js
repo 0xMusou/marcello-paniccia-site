@@ -64,7 +64,7 @@ if (countEl) {
   // ⚠️ UPDATE THIS DATE before each race weekend (ISO 8601, local time)
   // Set to a future date during development so you can see the active clock state.
   // Marcello updates this manually each round.
-  const TARGET_DATE = new Date('2026-09-15T09:00:00');
+  const TARGET_DATE = new Date('2026-09-15T09:00:00Z'); // UTC; update offset when race timezone is confirmed
 
   const clockEl    = document.getElementById('js-countdown-clock');
   const completeEl = document.getElementById('js-countdown-complete');
@@ -183,7 +183,7 @@ document.querySelectorAll('.ot-moment').forEach((chapter) => {
     wrap.addEventListener('click', () => {
       const video = wrap.querySelector('video');
       if (!video) return;
-      if (video.paused) { video.play(); } else { video.pause(); }
+      if (video.paused) { video.play().catch(() => {}); } else { video.pause(); }
     });
   });
 

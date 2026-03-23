@@ -14,7 +14,7 @@
 
 .ot-hero__photo {
   position: absolute;
-  inset: -20% 0 -20% 0; /* extra height for parallax travel */
+  inset: -25% 0 -25% 0; /* extra height for parallax travel — 50vh buffer covers yPercent:30 travel */
   z-index: 0;
 }
 

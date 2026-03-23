@@ -130,16 +130,19 @@ document.querySelectorAll('.ot-moment').forEach((chapter) => {
   });
 
   // Image mild parallax
-  gsap.fromTo(chapter.querySelector('.ot-moment__image img'), {
-    yPercent: -6,
-  }, {
-    yPercent: 6,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: chapter,
-      start: 'top bottom',
-      end: 'bottom top',
-      scrub: true,
-    }
-  });
+  const img = chapter.querySelector('.ot-moment__image img');
+  if (img) {
+    gsap.fromTo(img, {
+      yPercent: -6,
+    }, {
+      yPercent: 6,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: chapter,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true,
+      }
+    });
+  }
 });

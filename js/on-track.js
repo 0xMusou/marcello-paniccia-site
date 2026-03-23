@@ -191,3 +191,69 @@ document.querySelectorAll('.ot-moment').forEach((chapter) => {
     }
   });
 })();
+
+// ============================================================
+// RACE RESULTS — stagger card reveal
+// ============================================================
+gsap.to('.ot-result', {
+  opacity: 1,
+  y: 0,
+  duration: 0.6,
+  stagger: 0.07,
+  ease: 'power3.out',
+  scrollTrigger: {
+    trigger: '.ot-results',
+    start: 'top 70%',
+  }
+});
+
+// ============================================================
+// GALLERY — stagger fade-in per image
+// ============================================================
+gsap.to('.ot-gallery__item', {
+  opacity: 1,
+  duration: 0.7,
+  stagger: {
+    each: 0.07,
+    from: 'start',
+  },
+  ease: 'power2.out',
+  scrollTrigger: {
+    trigger: '.ot-gallery',
+    start: 'top 70%',
+  }
+});
+
+// ============================================================
+// CAR & TEAM — fade + slide in from sides
+// ============================================================
+gsap.to('.ot-car__photos', {
+  opacity: 1,
+  x: 0,
+  duration: 0.9,
+  ease: 'power3.out',
+  scrollTrigger: { trigger: '.ot-car', start: 'top 70%' }
+});
+
+gsap.to('.ot-car__info', {
+  opacity: 1,
+  x: 0,
+  duration: 0.9,
+  delay: 0.15,
+  ease: 'power3.out',
+  scrollTrigger: { trigger: '.ot-car', start: 'top 70%' }
+});
+
+// ============================================================
+// SOCIAL CTA — fade + slide up entrance
+// ============================================================
+gsap.to('.ot-social__inner', {
+  opacity: 1,
+  y: 0,
+  duration: 0.8,
+  ease: 'power3.out',
+  scrollTrigger: {
+    trigger: '.ot-social',
+    start: 'top 70%',
+  }
+});

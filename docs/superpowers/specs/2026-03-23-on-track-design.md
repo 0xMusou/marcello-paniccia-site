@@ -35,7 +35,7 @@ Tone: athlete portfolio meets racing editorial. Cool and visually driven first, 
 
 - Full-viewport (`100vh`) background photo: `IMG_0110.jpg` (pack race start)
 - Dark overlay gradient (bottom-heavy) so heading is legible
-- GSAP parallax: photo scrolls at ~60% speed relative to viewport on scroll down
+- GSAP parallax: same implementation as home page hero — photo lags behind scroll (moves up slower than viewport)
 - **Overline:** `MAZDA MX-5 CUP USA · 2025` — Switzer, uppercase, wide letter-spacing, muted white
 - **Heading:** `ON TRACK` — Gambarino, large (~10–14vw), white, with a short red (`#C32323`) underline bar beneath
 - GSAP stagger entrance on load: overline fades in first, then heading letters stagger up
@@ -53,9 +53,9 @@ Tone: athlete portfolio meets racing editorial. Cool and visually driven first, 
   | CAR NUMBER | #19 |
   | SERIES | MX-5 CUP USA |
   | SEASON | 2025 |
-- Count-up animation on ScrollTrigger enter (numbers count from 0)
+- Count-up animation on ScrollTrigger enter for true metrics only (RACES ENTERED and SEASON count from 0; CAR NUMBER and SERIES fade in as static identifiers — no count-up)
 - Each card: overline label (Switzer, muted, uppercase) + large number/value (Gambarino)
-- Alternating accent colors: red for car number, green for one other stat, white for the rest
+- Accent colors: red for CAR NUMBER, green for RACES ENTERED, white for SERIES and SEASON
 
 ---
 
@@ -65,7 +65,7 @@ Tone: athlete portfolio meets racing editorial. Cool and visually driven first, 
 - Large typographic countdown: `DD : HH : MM : SS` — Gambarino, very large (~8vw), white
 - Small labels beneath each unit: `DAYS · HOURS · MINUTES · SECONDS` — Switzer, muted
 - Below the clock: circuit name + date in red, e.g. `CIRCUIT DE LA SARTHE · APRIL 12, 2025`
-- If no upcoming race is scheduled: replace clock with the text `SEASON COMPLETE` in the same large Gambarino style
+- If the hardcoded target date has already passed when the page loads, automatically display `SEASON COMPLETE` in the same large Gambarino style instead of the clock. In this state: the `DD : HH : MM : SS` numerals and unit labels are hidden; the circuit name/date line below the clock is also hidden.
 - JavaScript `setInterval` drives the countdown; target date is hardcoded (updated manually each round)
 - GSAP fade + scale entrance on scroll enter
 
@@ -76,7 +76,7 @@ Tone: athlete portfolio meets racing editorial. Cool and visually driven first, 
 - Section heading: `DEFINING MOMENTS` — Switzer, uppercase, overline-style, muted
 - 3–4 "chapters" in alternating two-column layout (text left / image right, then image left / text right)
 - Each chapter:
-  - **Number:** large ghost numeral (e.g. `01`) in background, very low opacity, Gambarino
+  - **Number:** large ghost numeral (e.g. `01`) centered horizontally behind the full chapter row (behind both columns regardless of layout direction), very low opacity, Gambarino
   - **Title:** short bold statement (e.g. *"First podium."*) — Gambarino, ~3rem
   - **Label:** date + circuit — Switzer, muted, uppercase, small
   - **Body:** 2–3 sentences of placeholder text
@@ -104,8 +104,8 @@ Tone: athlete portfolio meets racing editorial. Cool and visually driven first, 
   - Centered play icon (SVG, white, ~48px) as placeholder
   - Short label below: e.g. `RACE START · ROUND 1` — Switzer, muted, small
   - On hover: border color shifts to red, play icon scales up slightly
-- Videos are `<video>` tags (or YouTube `<iframe>` embeds) — placeholders use an empty container; Marcello drops in `src` attributes later
-- Strip has left/right arrow navigation buttons (or drag-to-scroll on desktop)
+- Videos are `<video>` tags with empty `src` as placeholders; Marcello drops in `src` attributes later. YouTube `<iframe>` embeds are a post-launch swap option if needed.
+- Navigation: the strip is an `overflow-x: scroll` flex row with `scroll-snap-type: x mandatory`; each clip container uses `scroll-snap-align: start`. Arrow buttons scroll by exactly one card width (card + gap). Drag-to-scroll works natively via the overflow container.
 - GSAP fade entrance on scroll enter
 
 ---
@@ -115,8 +115,8 @@ Tone: athlete portfolio meets racing editorial. Cool and visually driven first, 
 - Section heading: `RACE RESULTS` — Switzer, uppercase
 - Vertical card timeline: each card = one race round
 - Card fields: Round number · Circuit name · Date · Position · Notes (optional, e.g. "P3 — fastest lap")
-- Cards stack vertically with a left border accent (red for top-3 finishes, muted for others)
-- All placeholder data — realistic-looking dummy race entries for 2025 season
+- Cards stack vertically with a left border accent (red `#C32323` for top-3 finishes, `rgba(255,255,255,0.15)` for all others)
+- All placeholder data — build 8 realistic-looking dummy race entries to represent a typical MX-5 Cup USA season
 - GSAP stagger: cards fade + slide up sequentially on scroll enter
 - Simple, readable layout — not a full table, more editorial card style
 
@@ -126,7 +126,7 @@ Tone: athlete portfolio meets racing editorial. Cool and visually driven first, 
 
 - Section heading: `GALLERY` — Switzer, uppercase
 - Dynamic masonry grid layout (CSS columns, 3 columns desktop / 2 tablet / 1 mobile)
-- Photos: all available on-track assets — `IMGC0457.jpg`, `IMG_0110.jpg`, `IMGC1342.jpg`, `IMGC1321.jpg`, `IMGC1190.jpg`, `IMG_9359.jpg`, `IMG_9317.jpg`, `21-_DSC6438.jpg`, `169-_DSC8016.jpg`
+- Photos: all available on-track assets — `IMGC0457.jpg`, `IMG_0110.jpg` (reused from hero), `IMGC1342.jpg`, `IMGC1321.jpg`, `IMGC1190.jpg`, `73-_DSC8837.jpg`, `IMG_9359.jpg`, `IMG_9317.jpg`, `21-_DSC6438.jpg`, `169-_DSC8016.jpg`
 - GSAP ScrollTrigger stagger: images fade in as they enter the viewport
 - Hover: subtle zoom (scale 1.03) with a short transition
 - No lightbox for now (can be added post-Paper review)
@@ -138,7 +138,7 @@ Tone: athlete portfolio meets racing editorial. Cool and visually driven first, 
 - Two-column layout: left = photos, right = info
 - **Left:** stacked car photo + livery shot (use `IMGC0457.jpg` and `IMG_0110.jpg` as placeholders until real livery shots are available)
 - **Right:**
-  - Overline: `THE MACHINE`
+  - Overline: `THE MACHINE` — Switzer, uppercase, muted (consistent with all other section overlines)
   - Heading: `Mazda MX-5 Cup` — Gambarino
   - Key specs (small card grid, 2×2):
     - Engine: 2.0L Skyactiv-G
@@ -155,21 +155,23 @@ Tone: athlete portfolio meets racing editorial. Cool and visually driven first, 
 - Full-width dark section
 - Large heading: `FOLLOW THE SEASON.` — Gambarino, ~5–6vw
 - Two large icon+link buttons: Instagram (`@marcello.m.p`) · Facebook (`marcello.paniccia.2025`)
-- Red CTA button style (consistent with home page)
+- Use the existing `.btn.btn--red` class from `global.css`
 - GSAP fade entrance on scroll enter
 
 ---
 
 ## 4. Assets
 
+All asset paths are relative to the page root: `optimized marcello photos/<filename>`
+
 | File | Used in |
 |---|---|
-| `IMG_0110.jpg` | Hero, Car & Team |
+| `IMG_0110.jpg` | Hero, Gallery, Car & Team |
 | `IMGC0457.jpg` | Car & Team |
 | `IMGC1342.jpg` | Defining Moments ch.1, Gallery |
 | `IMGC1321.jpg` | Defining Moments ch.2, Gallery |
 | `IMGC1190.jpg` | Defining Moments ch.3, Gallery |
-| `73-_DSC8837.jpg` | Defining Moments ch.4, Gallery |
+| `73-_DSC8837.jpg` | Defining Moments ch.4, Gallery filler |
 | `IMG_9359.jpg`, `IMG_9317.jpg`, `21-_DSC6438.jpg`, `169-_DSC8016.jpg` | Gallery filler |
 
 ---
@@ -194,9 +196,9 @@ Tone: athlete portfolio meets racing editorial. Cool and visually driven first, 
 
 | File | Responsibility |
 |---|---|
-| `on-track.html` | Page markup — all 10 sections, CDN imports, nav, footer |
+| `on-track.html` | Page markup — all 10 sections, nav, footer; load GSAP and Lenis using the same script import strategy as `index.html`. Page title: `On Track — Marcello Paniccia`. |
 | `css/on-track.css` | On Track-specific section styles |
-| `js/on-track.js` | All GSAP animations + countdown JS for this page |
+| `js/on-track.js` | All GSAP animations + countdown JS for this page. `global.js` handles Lenis init and the Lenis-ScrollTrigger proxy globally — `on-track.js` does not need to re-initialise scroll. |
 | `css/global.css` | Shared (no changes needed) |
 | `js/global.js` | Shared (no changes needed) |
 

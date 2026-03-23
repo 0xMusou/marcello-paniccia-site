@@ -24,3 +24,35 @@
     }
   });
 })();
+
+// ============================================================
+// STATS GRID — FADE IN + COUNT-UP (RACES ENTERED ONLY)
+// ============================================================
+gsap.to('.ot-stat', {
+  opacity: 1,
+  y: 0,
+  duration: 0.7,
+  stagger: 0.12,
+  ease: 'power3.out',
+  scrollTrigger: {
+    trigger: '.ot-stats',
+    start: 'top 75%',
+  }
+});
+
+// Count-up: RACES ENTERED only (the card with data-count attribute)
+const countEl = document.querySelector('.ot-stat__value[data-count]');
+if (countEl) {
+  const target = parseInt(countEl.dataset.count, 10);
+  const obj = { val: 0 };
+  gsap.to(obj, {
+    val: target,
+    duration: 1.5,
+    ease: 'power2.out',
+    onUpdate: () => { countEl.textContent = Math.round(obj.val); },
+    scrollTrigger: {
+      trigger: '.ot-stats',
+      start: 'top 75%',
+    }
+  });
+}

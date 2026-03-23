@@ -67,7 +67,7 @@ Tone: athlete portfolio meets racing editorial. Cool and visually driven first, 
   - Large typographic countdown: `DD : HH : MM : SS` — Gambarino, very large (~8vw), white
   - Small labels beneath each unit: `DAYS · HOURS · MINUTES · SECONDS` — Switzer, muted
   - Below the clock: circuit name + date in red, e.g. `CIRCUIT DE LA SARTHE · APRIL 12, 2025`
-- **Past/no race state:** if the hardcoded target date has already passed when the page loads, the clock numerals, unit labels, and circuit/date line are all hidden; replace with `SEASON COMPLETE` in the same large Gambarino style, centered
+- **Past/no race state:** if the hardcoded target date has already passed when the page loads, the entire block below the overline (clock numerals, unit labels, and circuit/date line) is replaced by a single centered `SEASON COMPLETE` in the same large Gambarino style. Nothing else below the overline is shown.
 - JavaScript `setInterval` drives the countdown; target date is hardcoded (updated manually each round)
 - GSAP fade + scale entrance on scroll enter
 
@@ -107,7 +107,8 @@ Tone: athlete portfolio meets racing editorial. Cool and visually driven first, 
   - Short label below: e.g. `RACE START · ROUND 1` — Switzer, muted, small
   - On hover: border color shifts to red, play icon scales up slightly
 - Videos are `<video>` tags with empty `src` as placeholders; Marcello drops in `src` attributes later. YouTube `<iframe>` embeds are a post-launch swap option if needed.
-- Navigation: the strip is an `overflow-x: scroll` flex row with `scroll-snap-type: x mandatory`; each clip container uses `scroll-snap-align: start`. Drag-to-scroll works natively via the overflow container.
+- The strip is full-viewport-width. It is an `overflow-x: scroll` flex row with `scroll-snap-type: x mandatory`; each clip container uses `scroll-snap-align: start`. Drag-to-scroll works natively via the overflow container.
+- Card sizing: each card is `calc((100vw - 2 * var(--gap)) / 3)` so exactly 3 cards are visible at once on desktop; 2 on tablet; 1 on mobile. `--gap` is `1.5rem`. Arrow buttons scroll by exactly `cardWidth + gap` using JS `scrollBy()`.
 - Arrow buttons: positioned overlaid on the strip (left edge and right edge, vertically centered). Styled as bare SVG chevron icons (white, ~32px), no `.btn` class — just an icon with a semi-transparent dark circular background. Hidden (opacity 0, pointer-events none) when the strip is at its leftmost (left arrow) or rightmost (right arrow) scroll boundary. Each click scrolls by exactly one card width (card + gap).
 - GSAP fade entrance on scroll enter
 
@@ -157,8 +158,9 @@ Tone: athlete portfolio meets racing editorial. Cool and visually driven first, 
 
 - Full-width dark section
 - Large heading: `FOLLOW THE SEASON.` — Gambarino, ~5–6vw
-- Two large icon+link buttons: Instagram (`@marcello.m.p`) · Facebook (`marcello.paniccia.2025`)
-- Use `<a href="..." target="_blank" rel="noopener">` tags with the existing `.btn.btn--red` class from `global.css`
+- Two large icon+text link buttons: Instagram (`@marcello.m.p`) · Facebook (`marcello.paniccia.2025`)
+- Each button: inline SVG platform icon (~20px) + platform name as text label, side by side with a small gap
+- Use `<a href="..." target="_blank" rel="noopener">` tags with `.btn.btn--red` from `global.css` plus a `.btn--icon` modifier class defined in `on-track.css` that adds `display: inline-flex; align-items: center; gap: 0.5rem`
 - GSAP fade entrance on scroll enter
 
 ---

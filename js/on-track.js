@@ -111,3 +111,35 @@ gsap.to('.ot-countdown__inner', {
     start: 'top 70%',
   }
 });
+
+// ============================================================
+// DEFINING MOMENTS — stagger fade+slide, image parallax
+// ============================================================
+document.querySelectorAll('.ot-moment').forEach((chapter) => {
+  // Text content fades + slides up
+  gsap.from(chapter.querySelectorAll('.ot-moment__date, .ot-moment__title, .ot-moment__body'), {
+    opacity: 0,
+    y: 40,
+    duration: 0.8,
+    stagger: 0.1,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: chapter,
+      start: 'top 70%',
+    }
+  });
+
+  // Image mild parallax
+  gsap.fromTo(chapter.querySelector('.ot-moment__image img'), {
+    yPercent: -6,
+  }, {
+    yPercent: 6,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: chapter,
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true,
+    }
+  });
+});

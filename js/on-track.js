@@ -158,9 +158,7 @@ document.querySelectorAll('.ot-moment').forEach((chapter) => {
 
   function getCardWidth() {
     const card = strip.querySelector('.ot-clips__card');
-    // --gap is 1.5rem; parseFloat('1.5rem') = 1.5 — must convert to px using root font size
-    const remPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
-    const gap   = parseFloat(getComputedStyle(strip).getPropertyValue('--gap')) * remPx || 24;
+    const gap = parseFloat(getComputedStyle(strip).gap) || 24;
     return card ? card.offsetWidth + gap : 0;
   }
 
@@ -179,6 +177,15 @@ document.querySelectorAll('.ot-moment').forEach((chapter) => {
   });
   strip.addEventListener('scroll', updateArrows, { passive: true });
   updateArrows(); // set initial state
+
+  // Toggle play/pause on click
+  strip.querySelectorAll('.ot-clips__video-wrap').forEach((wrap) => {
+    wrap.addEventListener('click', () => {
+      const video = wrap.querySelector('video');
+      if (!video) return;
+      if (video.paused) { video.play(); } else { video.pause(); }
+    });
+  });
 
   // GSAP entrance
   gsap.to(strip, {

@@ -86,6 +86,7 @@
 
 @media (max-width: 700px) {
   .ot-stats__grid { grid-template-columns: repeat(2, 1fr); }
+  .ot-stat:nth-child(even) { border-right: none; }
 }
 
 .ot-stat {
@@ -192,6 +193,10 @@
   color: var(--color-text);
 }
 
+.ot-countdown__complete {
+  display: none; /* shown via JS when season ends */
+}
+
 /* ============================================================
    DEFINING MOMENTS
 ============================================================ */
@@ -264,6 +269,8 @@
   height: clamp(300px, 40vw, 520px);
   object-fit: cover;
 }
+
+/* .ot-moment--text-left is the default layout (text left, image right) — no additional rules needed */
 
 /* Column order: image-left variant swaps via grid */
 .ot-moment--image-left .ot-moment__image { order: -1; }
@@ -422,6 +429,10 @@
   border-left-color: var(--color-red);
 }
 
+.ot-result__info {
+  min-width: 0; /* prevents grid blowout on long circuit names */
+}
+
 .ot-result__round {
   font-family: var(--font-body);
   font-size: 0.7rem;
@@ -567,6 +578,11 @@
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
   margin-bottom: 2rem;
+}
+
+.ot-car__spec {
+  display: flex;
+  flex-direction: column;
 }
 
 .ot-car__spec-label {

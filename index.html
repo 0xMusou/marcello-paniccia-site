@@ -23,16 +23,20 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav__social">
-      <a href="https://instagram.com/marcello.m.p" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="https://facebook.com/marcello.paniccia.2025" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://instagram.com/marcello.m.p" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <img src="optimized marcello photos/icons/instagram.svg" alt="" class="nav__social-icon" />
+      </a>
+      <a href="https://facebook.com/marcello.paniccia.2025" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <img src="optimized marcello photos/icons/facebook.svg" alt="" class="nav__social-icon" />
+      </a>
     </div>
   </nav>
 
   <!-- SECTIONS added per task below -->
   <main>
     <!-- HERO -->
-    <section class="hero">
-      <!-- Signature watermark — behind all content -->
+    <section class="hero bg-textured">
+      <!-- Signature watermark -->
       <img
         class="hero__watermark"
         src="optimized marcello photos/signature/white march sig.png"
@@ -40,23 +44,43 @@
         aria-hidden="true"
       />
 
-      <!-- Portrait photo blended from right -->
+      <!-- Full-bleed background photo -->
       <div class="hero__photo">
-        <img src="optimized marcello photos/217-_DSC4338.jpg" alt="Marcello Paniccia" />
+        <img src="optimized marcello photos/IMG_9317.jpg" alt="Marcello's #19 MX-5 in the paddock" />
       </div>
 
-      <!-- Text content — left-aligned -->
+      <!-- Cutout portrait — parallax on mouse -->
+      <div class="hero__portrait" data-parallax-portrait>
+        <img src="optimized marcello photos/169-_DSC8016.png" alt="Marcello Paniccia" />
+      </div>
+
+      <!-- Text content — centered-left -->
       <div class="hero__content container">
-        <p class="overline hero__overline">Mazda MX-5 Cup &middot; Canada &middot; #19</p>
+        <span class="hero__age" data-line="age">Age 19</span>
         <h1 class="hero__name">
           <span class="hero__name-line" data-line="1">Marcello</span>
-          <span class="hero__name-line hero__name-line--red" data-line="2">Paniccia</span>
+          <span class="hero__name-line hero__name-line--red hero__name-line--indented" data-line="2">Paniccia</span>
         </h1>
-        <p class="hero__tagline">Canadian racing driver. Built for the fight.</p>
-        <div class="hero__ctas">
-          <a href="on-track.html" class="btn btn--red">On Track &rarr;</a>
-          <button class="btn btn--ghost hero__scroll-btn">Scroll &darr;</button>
-        </div>
+        <nav class="hero__page-links">
+          <a href="on-track.html">On Track</a>
+          <a href="off-track.html">Off Track</a>
+          <a href="calendar.html">Calendar</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+
+      <!-- Bottom-left race badge -->
+      <div class="hero__race-badge">
+        <span class="hero__race-number">#19</span>
+        <div class="hero__race-rule"></div>
+        <span class="hero__race-country">Ontario, Canada</span>
+      </div>
+
+      <!-- Next race callout -->
+      <div class="hero__next-race">
+        <span class="hero__next-race-label">Next Race</span>
+        <span class="hero__next-race-date">Sep 15</span>
+        <span class="hero__next-race-track">Watkins Glen International</span>
       </div>
     </section>
 
@@ -84,12 +108,15 @@
     </div>
 
     <!-- THE DRIVER -->
-    <section class="about">
+    <section class="about bg-textured">
+      <!-- Large ghosted number for depth -->
+      <span class="about__ghost" aria-hidden="true">19</span>
+
       <div class="container about__inner">
-        <!-- Left: bio text -->
+        <!-- Left: bio text — dominant column -->
         <div class="about__text">
           <p class="overline about__overline">The Driver</p>
-          <h2 class="about__heading">Built in the<br/>karting seat.</h2>
+          <h2 class="about__heading">Built in the<br/><span class="about__heading-accent">karting</span> seat.</h2>
           <p class="about__bio">
             Marcello Paniccia is a Canadian racing driver competing in the Mazda MX-5 Cup USA series.
             With over five years of karting under his belt, Marcello made the leap to circuit racing
@@ -98,17 +125,19 @@
           <a href="on-track.html" class="btn btn--red">See Results &rarr;</a>
         </div>
 
-        <!-- Right: stat cards -->
+        <!-- Right: stats — editorial typographic treatment -->
         <div class="about__stats">
-          <div class="about__stat about__stat--red">
+          <div class="about__stat">
             <span class="about__stat-value">5+</span>
-            <span class="about__stat-label">Years Karting</span>
+            <span class="about__stat-label">Years Racing</span>
           </div>
-          <div class="about__stat about__stat--green">
-            <span class="about__stat-value">#19</span>
+          <div class="about__stat-rule"></div>
+          <div class="about__stat">
+            <span class="about__stat-value about__stat-value--red">#19</span>
             <span class="about__stat-label">Car Number</span>
           </div>
-          <div class="about__stat about__stat--white">
+          <div class="about__stat-rule"></div>
+          <div class="about__stat">
             <span class="about__stat-value">MX-5</span>
             <span class="about__stat-label">Cup USA</span>
           </div>
@@ -118,30 +147,33 @@
 
     <!-- ON TRACK / OFF TRACK SPLIT -->
     <section class="split">
-      <!-- On Track — left side -->
+      <div class="split__pulse" aria-hidden="true">
+        <div class="split__pulse-glow"></div>
+      </div>
+      <!-- On Track — dominant left -->
       <a href="on-track.html" class="split__side split__side--left">
         <div class="split__bg">
           <img src="optimized marcello photos/IMG_0110.jpg" alt="On Track" />
         </div>
         <div class="split__overlay split__overlay--red"></div>
         <div class="split__ghost" aria-hidden="true">RACE</div>
-        <div class="split__content">
+        <div class="split__content split__content--bottom">
           <p class="overline split__overline">On Track</p>
-          <h2 class="split__heading">Results.<br/>Stats.<br/>Speed.</h2>
+          <h2 class="split__heading">Results.<br/>Stats.<br/><span class="split__heading-accent split__heading-accent--red">Speed.</span></h2>
           <span class="btn btn--red">Explore &rarr;</span>
         </div>
       </a>
 
-      <!-- Off Track — right side -->
+      <!-- Off Track — right -->
       <a href="off-track.html" class="split__side split__side--right">
         <div class="split__bg">
           <img src="optimized marcello photos/184-_DSC3814.jpg" alt="Off Track" />
         </div>
         <div class="split__overlay split__overlay--green"></div>
         <div class="split__ghost" aria-hidden="true">LIFE</div>
-        <div class="split__content">
+        <div class="split__content split__content--top">
           <p class="overline split__overline">Off Track</p>
-          <h2 class="split__heading">Beyond<br/>the<br/>helmet.</h2>
+          <h2 class="split__heading">Beyond<br/>the<br/><span class="split__heading-accent split__heading-accent--green">helmet.</span></h2>
           <span class="btn btn--ghost">Explore &rarr;</span>
         </div>
       </a>
@@ -152,36 +184,95 @@
       <div class="featured__photo">
         <img src="optimized marcello photos/IMGC0457.jpg" alt="Marcello Paniccia — Mazda MX-5 Cup" />
       </div>
-      <div class="featured__caption container">
-        <p class="overline featured__overline">On Track</p>
-        <a href="on-track.html" class="btn btn--ghost">View Results &rarr;</a>
+
+      <!-- Editorial overlay -->
+      <div class="featured__overlay container">
+        <blockquote class="featured__quote">
+          <span class="featured__quote-line">Every corner</span>
+          <span class="featured__quote-line featured__quote-line--accent">is earned.</span>
+        </blockquote>
+        <a href="on-track.html" class="featured__link">
+          <span class="overline">View Results</span>
+          <span class="featured__link-arrow">&rarr;</span>
+        </a>
       </div>
     </section>
 
-    <!-- INSTAGRAM PREVIEW STRIP -->
-    <section class="ig-strip">
-      <div class="container">
-        <div class="ig-strip__header">
-          <a
-            href="https://instagram.com/marcello.m.p"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="ig-strip__label"
-          >Follow @marcello.m.p &rarr;</a>
+    <!-- COUNTDOWN -->
+    <section class="countdown bg-textured">
+      <div class="countdown__accent" aria-hidden="true"></div>
+      <div class="container countdown__inner">
+        <p class="overline countdown__overline">Next Race</p>
+
+        <div class="countdown__clock" id="js-home-countdown-clock">
+          <div class="countdown__units">
+            <div class="countdown__unit">
+              <span class="countdown__num" id="js-home-cd-days">00</span>
+              <span class="countdown__label">Days</span>
+            </div>
+            <span class="countdown__sep" aria-hidden="true">:</span>
+            <div class="countdown__unit">
+              <span class="countdown__num" id="js-home-cd-hours">00</span>
+              <span class="countdown__label">Hours</span>
+            </div>
+            <span class="countdown__sep" aria-hidden="true">:</span>
+            <div class="countdown__unit">
+              <span class="countdown__num" id="js-home-cd-mins">00</span>
+              <span class="countdown__label">Minutes</span>
+            </div>
+            <span class="countdown__sep" aria-hidden="true">:</span>
+            <div class="countdown__unit countdown__unit--secs">
+              <span class="countdown__num countdown__num--secs" id="js-home-cd-secs">00</span>
+              <span class="countdown__label">Seconds</span>
+            </div>
+          </div>
+          <div class="countdown__meta">
+            <span class="countdown__rule" aria-hidden="true"></span>
+            <p class="countdown__circuit">TBD Circuit &middot; September 15, 2026</p>
+            <span class="countdown__rule" aria-hidden="true"></span>
+          </div>
         </div>
-        <div class="ig-strip__grid">
-          <a href="https://instagram.com/marcello.m.p" target="_blank" rel="noopener noreferrer" class="ig-strip__tile">
-            <img src="optimized marcello photos/IMGC1342.jpg" alt="Marcello Paniccia" />
+
+        <div class="countdown__complete" id="js-home-countdown-complete" style="display:none">
+          <span class="countdown__complete-text">Season Complete</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL CTA -->
+    <section class="social-cta bg-textured">
+      <div class="social-cta__header container">
+        <p class="overline social-cta__eyebrow">Follow the Season</p>
+        <h2 class="social-cta__heading">Stay<br/>connected.</h2>
+        <div class="social-cta__buttons">
+          <a href="https://instagram.com/marcello.m.p" target="_blank" rel="noopener noreferrer" class="social-cta__btn social-cta__btn--ig">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+              <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+            </svg>
+            Instagram
           </a>
-          <a href="https://instagram.com/marcello.m.p" target="_blank" rel="noopener noreferrer" class="ig-strip__tile">
-            <img src="optimized marcello photos/IMGC1321.jpg" alt="Marcello Paniccia" />
+          <a href="https://facebook.com/marcello.paniccia.2025" target="_blank" rel="noopener noreferrer" class="social-cta__btn social-cta__btn--fb">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Facebook
           </a>
-          <a href="https://instagram.com/marcello.m.p" target="_blank" rel="noopener noreferrer" class="ig-strip__tile">
-            <img src="optimized marcello photos/73-_DSC8837.jpg" alt="Marcello Paniccia" />
-          </a>
-          <a href="https://instagram.com/marcello.m.p" target="_blank" rel="noopener noreferrer" class="ig-strip__tile">
-            <img src="optimized marcello photos/21-_DSC6438.jpg" alt="Marcello Paniccia" />
-          </a>
+        </div>
+      </div>
+      <div class="social-cta__collage">
+        <div class="social-cta__photo social-cta__photo--1">
+          <img src="optimized marcello photos/IMGC0457.jpg" alt="Marcello Paniccia on track" />
+        </div>
+        <div class="social-cta__photo social-cta__photo--2">
+          <img src="optimized marcello photos/217-_DSC4338.jpg" alt="Marcello Paniccia" />
+        </div>
+        <div class="social-cta__photo social-cta__photo--3">
+          <img src="optimized marcello photos/IMGC1190.jpg" alt="Car #19" />
+        </div>
+        <div class="social-cta__photo social-cta__photo--4">
+          <img src="optimized marcello photos/IMG_0807.jpg" alt="Marcello Paniccia" />
         </div>
       </div>
     </section>
@@ -190,30 +281,29 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer__inner">
-      <span class="footer__copy">© 2026 Marcello Paniccia</span>
-      <div class="footer__center">
-        <div class="footer__sig">
-          <img src="optimized marcello photos/signature/red march sig.png" alt="" aria-hidden="true" />
-        </div>
-        <ul class="footer__nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="on-track.html">On Track</a></li>
-          <li><a href="off-track.html">Off Track</a></li>
-          <li><a href="calendar.html">Calendar</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+      <div class="footer__sig">
+        <img src="optimized marcello photos/signature/red march sig.png" alt="" aria-hidden="true" />
       </div>
+      <hr class="footer__rule" />
+      <ul class="footer__nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="on-track.html">On Track</a></li>
+        <li><a href="off-track.html">Off Track</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
       <div class="footer__social">
         <a href="https://instagram.com/marcello.m.p" target="_blank" rel="noopener noreferrer">@marcello.m.p</a>
         <a href="https://facebook.com/marcello.paniccia.2025" target="_blank" rel="noopener noreferrer">Facebook</a>
       </div>
+      <span class="footer__copy">&copy; 2026 Marcello Paniccia</span>
     </div>
   </footer>
 
   <!-- CDN libs -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.umd.js"></script>
   <!-- Register ScrollTrigger before any page scripts -->
   <script>gsap.registerPlugin(ScrollTrigger);</script>
   <script src="js/global.js"></script>
